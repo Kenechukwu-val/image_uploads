@@ -13,7 +13,7 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser');
 
 
-mongoose.connect('mongodb://localhost:27017/uploads', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/uploads', {
 
     useNewUrlParser: true,
     useCreateIndex: true
@@ -25,24 +25,9 @@ app.use('/uploads', express.static('uploads'))
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.use('/img_uploads', uploadRoutes)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.use('/img_uploads', uploadRoutes);
 
 
 app.listen(PORT, () => {
-    console.log('Server starting at port', PORT);
+    console.log(`Server starting at port ${PORT}`);
 })
