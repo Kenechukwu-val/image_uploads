@@ -4,6 +4,10 @@ const mongoose = require('mongoose');
 
 const Uploads = require('../models/upload_img');
 
+const cors = require('cors');
+
+const fetch = require('node-fetch');
+
 const multer = require('multer');
 
 const storage = multer.diskStorage({
@@ -61,11 +65,10 @@ router.post('/fileUpload', upload.single('image'), (req, res, next) => {
         const image_upload = new Uploads({
             _id: new mongoose.Types.ObjectId(),
             images: req.file.path
-        })
-        url = "https://image-uploads-app.herokuapp.com/";
+        });
         image_upload.save().then((docs) => {
             console.log(req.file)
-            docs = url + req.file.path
+            docs = req.file.path
             res.status(200).json({
                 msg: 'Image Uploaded',
                 docs
