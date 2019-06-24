@@ -62,9 +62,10 @@ router.post('/fileUpload', upload.single('image'), (req, res, next) => {
             _id: new mongoose.Types.ObjectId(),
             images: req.file.path
         })
+        url = "https://image-uploads-app.herokuapp.com/";
         image_upload.save().then((docs) => {
             console.log(req.file)
-            docs = req.file.path
+            docs = url + req.file.path
             res.status(200).json({
                 msg: 'Image Uploaded',
                 docs
