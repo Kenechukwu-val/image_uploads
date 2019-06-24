@@ -20,6 +20,10 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/uploads',
 })
 mongoose.promise = global.promise
 
+app.use("/", (req, res) => {
+    res.send("Image Upload");
+})
+
 app.use(morgan('dev'));
 app.use('/uploads', express.static('uploads'))
 app.use(bodyParser.urlencoded({extended: false}));
