@@ -35,15 +35,13 @@ const upload = multer({
 const router = express.Router();
 
 router.get('/', upload.single("image"), (req, res, next) => {
-    url = "https://image-uploads-app.herokuapp.com";
-    images = url + req.file.path;
     Uploads.find()
     .select("image")
     .exec()
     .then((docs) => {
         res.status(200).json({
             msg: 'Details',
-            images
+            docs
         })
     })
     .catch((e) => {
