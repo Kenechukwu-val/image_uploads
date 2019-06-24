@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 const uploadRoutes = require('./api/routes/uploads');
 
@@ -28,6 +28,6 @@ app.use(bodyParser.json());
 app.use('/img_uploads', uploadRoutes);
 
 
-app.listen(PORT, () => {
-    console.log(`Server starting at port ${PORT}`);
+app.listen(port, () => {
+    console.log(`Server starting at port ${port}`);
 })
