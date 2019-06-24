@@ -21,7 +21,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/uploads',
 mongoose.promise = global.promise
 
 app.use("/", (req, res) => {
-    res.send("Image Upload");
+    res.status(200).json({
+        msg: "Image Uploads"
+    })
 })
 
 app.use(morgan('dev'));
