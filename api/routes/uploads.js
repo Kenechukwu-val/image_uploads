@@ -4,10 +4,6 @@ const mongoose = require('mongoose');
 
 const Uploads = require('../models/upload_img');
 
-const cors = require('cors');
-
-const fetch = require('node-fetch');
-
 const multer = require('multer');
 
 const storage = multer.diskStorage({
