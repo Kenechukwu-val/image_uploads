@@ -18,13 +18,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/uploads',
     useNewUrlParser: true,
     useCreateIndex: true
 })
-mongoose.promise = global.promise
-
-app.use("/", (req, res) => {
-    res.status(200).json({
-        msg: "Image Uploads"
-    })
-})
+mongoose.promise = global.promise;
 
 app.use(morgan('dev'));
 app.use('/uploads', express.static('uploads'))
