@@ -64,7 +64,7 @@ router.post('/fileUpload', upload.single('image'), (req, res, next) => {
         });
         image_upload.save().then((docs) => {
             console.log(req.file)
-            docs = "https://image-uploads-app.herokuapp.com/" + req.file.path
+            docs = req.hostname + "/" + req.file.path
             res.status(200).json({
                 msg: 'Image Uploaded',
                 docs
