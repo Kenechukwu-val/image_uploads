@@ -4,7 +4,27 @@ const mongoose = require('mongoose');
 
 const Uploads = require('../models/upload_img');
 
+// const swaggerDocs = require('swagger-jsdoc');
+
+// const swaggerUi = require('swagger-ui-express');
+
 const multer = require('multer');
+
+
+
+
+// const swaggerOptions = {
+//     swaggerDefinition: {
+//         info: {
+//             title: 'File Upload API',
+//             description: 'uploading images to a server and getting the image URL',
+//             contact: {
+//                 name: 'Nwafor Kenechukwu'
+//             },
+//             servers: [""]
+//         }
+//     }
+// }
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb){
